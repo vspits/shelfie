@@ -16,7 +16,7 @@ class Dashboard extends Component{
         let mappedInventory = this.props.inventoryList.map((item) => {
             return (
                 <Product 
-                    key={item.index}
+                    key={item.product_id}
                     name={item.name}
                     price={item.price}
                     image={item.image}

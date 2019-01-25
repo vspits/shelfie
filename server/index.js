@@ -3,12 +3,14 @@ require('dotenv').config()
 const massive = require('massive')
 const bodyParser = require('body-parser')
 const controller = require('./controller')
+const cors = require('cors')
 
 const app = express()
 app.use(bodyParser.json())
+app.use(cors())
 
 massive(process.env.CONNECTION_STRING)
-    .then(db => app.set('db', db))
+    .then(dbInstance => app.set('db', dbInstance))
     .catch(err => console.log(err))
 
 
