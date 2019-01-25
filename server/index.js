@@ -12,10 +12,10 @@ massive(process.env.CONNECTION_STRING)
     .catch(err => console.log(err))
 
 
-app.get(`/api/products`, controller.get)
-app.post(`/api/products`, controller.post)
-app.put(`/api/product/:id`, controller.update)
-app.delete(`/api/product/:id`, controller.delete)
+app.get(`/api/inventory`, controller.get)
+// app.post(`/api/products`, controller.post)
+// app.put(`/api/product/:id`, controller.update)
+// app.delete(`/api/product/:id`, controller.delete)
 
 const port = process.env.SERVER_PORT
 
