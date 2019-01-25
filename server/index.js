@@ -13,7 +13,7 @@ massive(process.env.CONNECTION_STRING)
 
 
 app.get(`/api/inventory`, controller.get)
-// app.post(`/api/products`, controller.post)
+app.post(`/api/product`, controller.post)
 // app.put(`/api/product/:id`, controller.update)
 // app.delete(`/api/product/:id`, controller.delete)
 

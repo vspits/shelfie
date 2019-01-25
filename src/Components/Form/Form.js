@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Form extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
+            newProduct: [],
             imageInput: '',
             nameInput: '',
             priceInput: ''
@@ -35,6 +36,23 @@ class Form extends Component{
         })
     }
 
+    createProduct(){
+        const bodyObj = {
+            product_name: this.state.nameInput,
+            product_price: this.state.priceInput,
+            image_url: this.state.imageInput
+        }
+        axios.post(`/api/product`, bodyObj)
+        .then(response => {
+            this.props.getInventory()
+        })
+        this.setState({
+            imageInput: this.props.image,
+            nameInput: this.props.name,
+            priceInput: this.props.price
+        })
+    }
+
     render(){
         return(
             <div>
@@ -42,8 +60,8 @@ class Form extends Component{
                 <input onChange={(event) => this.handleImageInput(event.target.value)}/>
                 <input onChange={(event) => this.handleNameInput(event.target.value)}/>
                 <input onChange={(event) => this.handlePriceInput(event.target.value)}/>
-                <button onClick={() => this.handleCancel(this.state)}>Cancel</button>
-                <button>Add to Inventory</button>
+                <button onClick={() => this.handleCancel()}>Cancel</button>
+                <button onClick={() => this.createProduct()}>Add to Inventory</button>
             </div>
         )
     }
