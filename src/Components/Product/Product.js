@@ -4,7 +4,9 @@ import axios from 'axios'
 function Product(props){
     return(
         <div>
-            Product
+            {props.image}
+            {props.name}
+            {props.price}
         </div>
     )
 }

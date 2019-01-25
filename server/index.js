@@ -12,11 +12,11 @@ massive(process.env.CONNECTION_STRING)
     .catch(err => console.log(err))
 
 
-app.get(`/api`)
-app.post(`/api`)
-app.put(`/api`)
-app.delete(`/api`)
+app.get(`/api/products`, controller.get)
+app.post(`/api/products`, controller.post)
+app.put(`/api/product/:id`, controller.update)
+app.delete(`/api/product/:id`, controller.delete)
 
-const port = process.env.PORT
+const port = process.env.SERVER_PORT
 
 app.listen(port, () => console.log(`${port} is werkin real hard`))

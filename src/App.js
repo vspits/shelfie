@@ -9,7 +9,11 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      inventoryList: []
+      inventoryList: [
+        {name: 'sticker', price: 1, image: 'muchimage'},
+        {name: 'Keyboard', price: 15, image: 'suchwowimg'},
+        {name: 'Phone Charger', price: 9, image: 'definatelyAnJPG'}
+      ]
     }
   }
   render() {
@@ -17,7 +21,7 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <Dashboard inventoryList={this.inventoryList}>
+        <Dashboard inventoryList={this.state.inventoryList}>
           <Product />
         </Dashboard>
 
