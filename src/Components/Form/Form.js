@@ -55,13 +55,29 @@ class Form extends Component{
 
     render(){
         return(
-            <div>
-                <div>Form</div>
-                <input onChange={(event) => this.handleImageInput(event.target.value)}/>
-                <input onChange={(event) => this.handleNameInput(event.target.value)}/>
-                <input onChange={(event) => this.handlePriceInput(event.target.value)}/>
-                <button onClick={() => this.handleCancel()}>Cancel</button>
-                <button onClick={() => this.createProduct()}>Add to Inventory</button>
+            <div className='formComponent'>
+                <div style={{height: '35%', border: '1px solid black', width: '80%', margin: 'auto'}}></div>
+                <div>
+                    <p>Image URL:</p>
+                    <input className='inputBar' onChange={(event) => this.handleImageInput(event.target.value)}/>
+                </div>
+                <div>
+                    <p>Product Name:</p>
+                    <input className='inputBar' onChange={(event) => this.handleNameInput(event.target.value)}/>
+                </div>
+                <div>
+                    <p>Price:</p>
+                    <input className='inputBar' onChange={(event) => this.handlePriceInput(event.target.value)}/>
+                </div>
+            <div className='buttons'>
+                <div>
+                    <button className='cancelButton' onClick={() => this.handleCancel()}>Cancel</button>
+                </div>
+                <div>
+                    <button className='addButton' onClick={() => this.createProduct()}>Add to Inventory</button>
+                </div>
+            </div>
+
             </div>
         )
     }

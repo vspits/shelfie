@@ -10,7 +10,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      inventoryList: [],
+      inventoryList: [{},{},{}],
       name: '',
       price: '',
       image: ''
@@ -34,18 +34,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <div className='mainParent'>
+          <div className='left'>
+            <Dashboard 
+              inventoryList={this.state.inventoryList}
+              getInventory={this.getInventory}>
 
-        <Dashboard 
-          inventoryList={this.state.inventoryList}
-          getInventory={this.getInventory}>
-
-          <Product 
-            getInventory={this.getInventory}/>
+              <Product 
+                getInventory={this.getInventory}/>
             
-        </Dashboard>
-
-        <Form 
-          getInventory={this.getInventory}/>
+            </Dashboard>
+          </div>
+          
+          <div className='right'>
+            <Form 
+              getInventory={this.getInventory}/>
+          </div>
+        </div>
       </div>
     );
   }
